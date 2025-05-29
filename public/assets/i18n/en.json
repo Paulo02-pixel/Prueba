@@ -1,0 +1,41 @@
+{
+  "app": {
+    "title": "Sustainable Urban Farming"
+  },
+  "home": {
+    "title": "Home",
+    "welcome": "Welcome to Tend",
+    "registeredPlots": "Registered Plots",
+    "id": "ID",
+    "name": "Name",
+    "location": "Location",
+    "hectares": "Hectares",
+    "monitoringStartDate": "Monitoring Start Date",
+    "actions": "Actions",
+    "registerInspection": "Register Inspection"
+  },
+  "INSPECTION": {
+    "title": "Inspection",
+    "TITLE": "Inspection Registration",
+    "EDIT_TITLE": "Edit Inspection",
+    "PLOT_ID": "Plot ID",
+    "OBSERVATIONS": "Observations",
+    "RECOMMENDED_ACTIONS": "Recommended Actions",
+    "CROP_STATUS": "Crop Status",
+    "GOOD": "Good",
+    "WARNING": "Warning",
+    "CRITICAL": "Critical",
+    "REGISTER": "Register Inspection",
+    "UPDATE": "Update",
+    "CANCEL": "Cancel"
+  },
+  "pageNotFound": {
+    "title": "Page Not Found",
+    "description": "The path <b>{{ invalidPath }}</b> is not valid",
+    "homeButton": "Home"
+  },
+  "footer": {
+    "copyright": "Copyright © 2025 Tend Studio. All rights reserved. Paulo Quincho",
+    "poweredBy": "Powered by <a href='https://material.angular.dev/' target='_blank'>Angular Material</a> and <a href='https://ngx-translate.org/' target='_blank'>ngx-translate</a>"
+  }
+}

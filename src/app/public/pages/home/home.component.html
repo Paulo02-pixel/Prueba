@@ -1,0 +1,59 @@
+<!-- src/app/public/home/home.component.html -->
+
+<div class="home-container">
+  <h1>{{ 'home.title' | translate }}</h1>
+  <p>{{ 'home.welcome' | translate }}</p>
+
+  <section>
+    <h2>{{ 'home.registeredPlots' | translate }}</h2>
+
+    <table mat-table [dataSource]="plots" class="mat-elevation-z8" *ngIf="plots.length">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.id' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">{{ plot.id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.name' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">{{ plot.name }}</td>
+      </ng-container>
+
+      <!-- Location Column -->
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.location' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">{{ plot.location }}</td>
+      </ng-container>
+
+      <!-- Hectares Column -->
+      <ng-container matColumnDef="hectares">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.hectares' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">{{ plot.hectares }}</td>
+      </ng-container>
+
+      <!-- Monitoring Start Date Column -->
+      <ng-container matColumnDef="monitoringStartDate">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.monitoringStartDate' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">{{ plot.monitoringStartDate | date: 'shortDate' }}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>{{ 'home.actions' | translate }}</th>
+        <td mat-cell *matCellDef="let plot">
+          <button mat-button color="primary"
+                  [routerLink]="['/inspections', plot.id]"
+                  [disabled]="isFutureDate(plot.monitoringStartDate)">
+            {{ 'home.registerInspection' | translate }}
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columns"></tr>
+      <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+  </section>
+</div>
+

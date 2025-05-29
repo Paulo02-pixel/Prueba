@@ -1,0 +1,43 @@
+<h2>{{ editMode ? ('INSPECTION.EDIT_TITLE' | translate) : ('INSPECTION.TITLE' | translate) }}</h2>
+<div class="form-section">
+  <form #inspectionForm="ngForm" (ngSubmit)="onSubmit()" class="form-row">
+    <mat-form-field>
+      <input
+        matInput
+        name="plotId"
+        [(ngModel)]="inspection.plotId"
+        [placeholder]="'INSPECTION.PLOT_ID' | translate"
+        readonly
+        required
+        #plotIdInput="ngModel"
+      />
+    </mat-form-field>
+
+    <div *ngIf="plotIdInput.invalid && plotIdInput.touched" class="error-message">
+      Plot ID is required.
+    </div>
+
+    <mat-form-field>
+      <input matInput name="observations" [(ngModel)]="inspection.observations" [placeholder]="'INSPECTION.OBSERVATIONS' | translate" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="recommendedActions" [(ngModel)]="inspection.recommendedActions" [placeholder]="'INSPECTION.RECOMMENDED_ACTIONS' | translate" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-select name="cropStatus" [(ngModel)]="inspection.cropStatus" required [placeholder]="'INSPECTION.CROP_STATUS' | translate">
+        <mat-option value="Good">{{ 'INSPECTION.GOOD' | translate }}</mat-option>
+        <mat-option value="Warning">{{ 'INSPECTION.WARNING' | translate }}</mat-option>
+        <mat-option value="Critical">{{ 'INSPECTION.CRITICAL' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary">{{ editMode ? ('INSPECTION.UPDATE' | translate) : ('INSPECTION.REGISTER' | translate) }}</button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">
+        {{ 'INSPECTION.CANCEL' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+.hero-section {
+  position: relative;
+  text-align: center;
+  margin: 24px;
+
+  .hero-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    max-width: 80%;
+    font-weight: 500;
+  }
+}
